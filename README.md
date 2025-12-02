@@ -5,14 +5,16 @@ This project parses the AT&T BGW320 router status page, extracts the "LAN Host D
 **Main features**
 - **Parser**: `parser.py` — fetches the router page, parses the device table, and updates the `devices` table in the database periodically.
 - **API server**: `webserver.py` — a FastAPI app exposing `/devices`, `/devices/<identifier>`, and `/search` endpoints to query devices by hostname, IP, MAC, or type.
-- **Web UI**: Built-in web interface at `/` for searching devices with wildcard and CIDR support.
+- **Web UI (React)**: Modern, separate React-based frontend at port `3000` for searching and viewing devices with a professional, themed interface.
+- **Legacy Web UI**: Built-in web interface at `/` (on port `5000`) for searching devices.
 - **Markdown generator**: `generate_table.py` — converts a tab-separated `device_list.txt` into a markdown table `device_table.md` (note: it uses a hard-coded input/output path by default).
 - **DB init**: `init.sql` — initial SQL used by the MariaDB container to create the `device_tracker` database and `devices` table.
 - **Containerized**: `Dockerfile` and `docker-compose.yml` to run the parser, webserver, and a MariaDB instance.
 
 **Repository layout**
 - `parser.py` — router page scraper + DB updater (main background job).
-- `webserver.py` — FastAPI server with REST API and built-in Web UI.
+- `webserver.py` — FastAPI server with REST API and legacy Web UI.
+- `ui/` — React application source code and Docker configuration for the new Web UI.
 - `generate_table.py` — script that converts a device list into markdown.
 - `device_list.txt` — sample/raw tab-separated device data.
 - `device_table.md` — example generated markdown table.
@@ -33,8 +35,10 @@ docker-compose up --build
 - `db` (MariaDB) on port `3306` with `MYSQL_ROOT_PASSWORD=password` (see `docker-compose.yml`).
 - `parser` runs `parser.py` and depends on `db`.
 - `webserver` runs `webserver.py` and exposes port `5000`.
-- Web UI available at http://localhost:5000/
-- API available at http://localhost:5000/devices
+- `ui` runs the React Web UI and exposes port `3000`.
+- React Web UI available at http://localhost:3000/
+- Legacy Web UI available at http://localhost:5000/
+- API available at http://localhost:5000/devices (and proxied via http://localhost:3000/api/devices)
 
 3. Query devices via HTTP:
 
@@ -54,9 +58,15 @@ curl "http://localhost:5000/search?q=192.168.1.0/24"
 curl "http://localhost:5000/search?q=aa:bb:cc"
 ```
 
-**Web UI Search Features**
+**React Web UI Features**
+The new React-based UI at `http://localhost:3000` offers a modern experience:
+- **Professional Design**: Dark theme with neon accents and responsive layout.
+- **Advanced Search**: Supports wildcards (`*`, `?`), CIDR notation, and partial matches.
+- **Visual Feedback**: Loading states, error handling, and "no results" indicators.
+- **Device Details**: Pretty formatting for IP, MAC, and timestamps, with visual indicators for connection type (Wi-Fi vs Ethernet).
 
-The built-in web interface at `/` supports:
+**Legacy Web UI Search Features**
+The built-in web interface at `http://localhost:5000/` supports:
 - **Wildcards**: Use `*` for multiple characters, `?` for single character (e.g., `*phone*`, `192.168.1.?`)
 - **CIDR notation**: Search by subnet (e.g., `192.168.1.0/24`, `10.0.0.0/8`)
 - **Partial matches**: Match any part of hostname, IP, MAC address, or timestamps
@@ -101,5 +111,29 @@ Environment variables (recommended)
 - The parser relies on HTML structure (a table with `summary="LAN Host Discovery Table"`). Router firmware updates may change that structure and break parsing.
 - IP matching in the API is a simple regex; some IPv6 addresses may not be recognized by the simplistic check.
 - No authentication is implemented for the API; consider adding auth if exposing to untrusted networks.
+
+## React UI Technical Details
+
+### Tech Stack & Dependencies
+The new Web UI is built with a modern React stack:
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **HTTP Client**: [Axios](https://axios-http.com/)
+- **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+
+### Architecture & Configuration
+- **Docker**: The UI is built as a static site (Node.js build stage) and served via **Nginx** (Alpine image).
+- **Nginx Proxy**: The Nginx configuration (`ui/nginx.conf`) serves the React app and proxies `/api` requests to the `webserver` container on port 5000.
+- **CORS**: The backend (`webserver.py`) uses `CORSMiddleware` to allow cross-origin requests (`allow_origins=["*"]`), enabling the UI to communicate with the API even when running on different ports during development.
+
+### Source Structure
+- `ui/src/App.jsx`: Main application component containing:
+    - Search state management
+    - API integration logic
+    - **SearchBar**: Input field with wildcard/CIDR support
+    - **ResultList/ResultItem**: Grid display of device cards with animations
+- `ui/src/index.css`: Tailwind directives and global theme styles
+- `ui/tailwind.config.js`: Custom theme configuration (Primary Cyan `#00d4ff`, Dark Background)
 
 
