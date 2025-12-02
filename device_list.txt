@@ -1,0 +1,95 @@
+192.168.1.124 / SWNHD-825CAM20150906CCWR537455557	on	Ethernet	 	No
+192.168.1.126 / SWNHD-825CAM20141008CCWR481721538	on	Ethernet	 	No
+192.168.1.152 / Android-2	on	Ethernet	 	No
+192.168.10.252 / Samsung-Refrigerator	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.11.39 / wlan0	on	Ethernet	 	No
+192.168.12.197 / iRobot-778A8B4622E54EFB88A8EA5D5C6A9040	off	Wi-Fi	5 GHz, Home, Asgard	No
+192.168.12.207 / Al	on	Ethernet	 	No
+192.168.13.197 / Texas Instruments	on	Wi-Fi   Wi-Fi 4 bars	2.4 GHz, Home, Asgard	No
+192.168.13.56 / artik	on	Ethernet	 	No
+192.168.13.59 / Ring Solutions	on	Wi-Fi   Wi-Fi 4 bars	5 GHz, Home, Asgard	No
+192.168.13.75 / rpi5	on	Wi-Fi   Wi-Fi 3 bars	5 GHz, Home, Asgard	No
+192.168.13.78 / HS200	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.13.79 / iPhone	on	Wi-Fi   Wi-Fi 3 bars	5 GHz, Home, Asgard	No
+192.168.14.108 / sfce-snpdrgn-at	on	Wi-Fi   Wi-Fi 3 bars	5 GHz, Home, Asgard	No
+192.168.14.109 / NVIDIA Corporation	off	Ethernet	 	No
+192.168.14.113 / NVIDIA Corporation	on	Ethernet	 	No
+192.168.14.116 / NucBox_EVO-X2	off	Wi-Fi	5 GHz, Home, Asgard	No
+192.168.14.118 / jetson-nano-5910	on	Wi-Fi   Wi-Fi 2 bars	5 GHz, Home, Asgard	No
+192.168.14.132 / EL300-MXQ94502J-Ub2204	on	Ethernet	 	No
+192.168.14.97 / EL300-MXQ94502J	on	Ethernet	 	No
+192.168.2.102 / EL300-Living-Left	on	Ethernet	 	No
+192.168.2.109 / HS103	on	Ethernet	 	No
+192.168.2.111 / artik	on	Ethernet	 	No
+192.168.2.116 / gl20-centos75	on	Ethernet	 	No
+192.168.2.119 / raspberrypi	on	Ethernet	 	No
+192.168.2.123 / HS300	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.124 / EP40	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.132 / Android	on	Ethernet	 	No
+192.168.2.139 / NucBox_EVO-X2	on	Ethernet	 	No
+192.168.2.140 / rpi43	on	Wi-Fi   Wi-Fi 3 bars	5 GHz, Home, Asgard	No
+192.168.2.153 / EL300-MXQ94502J	off	Wi-Fi	2.4 GHz, Guest, Midgard	No
+192.168.2.157 / eth0	on	Ethernet	 	No
+192.168.2.16 / HS103	on	Ethernet	 	No
+192.168.2.162 / Left	on	Ethernet	 	No
+192.168.2.164 / HS300	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.166 / Backyard	on	Ethernet	 	No
+192.168.2.167 / Back	on	Ethernet	 	No
+192.168.2.168 / Front	off	Ethernet	 	No
+192.168.2.169 / Right	off	Ethernet	 	No
+192.168.2.17 / Hewlett Packard Enterprise	on	Ethernet	 	No
+192.168.2.170 / Front	off	Ethernet	 	No
+192.168.2.171 / Front	on	Ethernet	 	No
+192.168.2.172 / Front	on	Ethernet	 	No
+192.168.2.177 / none-7	on	Wi-Fi   Wi-Fi 4 bars	5 GHz, Home, Asgard	No
+192.168.2.178 / none	on	Wi-Fi   Wi-Fi 3 bars	5 GHz, Home, Asgard	No
+192.168.2.192 / eth0	on	Ethernet	 	No
+192.168.2.197 / TL-SG108E	on	Ethernet	 	No
+192.168.2.199 / rpi-zerow	on	Wi-Fi   Wi-Fi 3 bars	2.4 GHz, Home, Asgard	No
+192.168.2.2 / HS103	on	Ethernet	 	No
+192.168.2.203 / MikroTik_CRS305	on	Ethernet	 	No
+192.168.2.204 / MikroTik_CRS309	on	Ethernet	 	No
+192.168.2.206 / iRobot-DC92E17E17A14A39A268B03A0FDC2BF3	on	Wi-Fi   Wi-Fi 3 bars	5 GHz, Home, Asgard	No
+192.168.2.208 / KL420	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.21 / Hewlett Packard	on	Ethernet	 	No
+192.168.2.210 / espressif	on	Wi-Fi   Wi-Fi 4 bars	2.4 GHz, Home, Asgard	No
+192.168.2.212 / Ring-a3cff0	on	Wi-Fi   Wi-Fi 4 bars	2.4 GHz, Home, Asgard	No
+192.168.2.213 / NVR-RLN16-410	on	Ethernet	 	No
+192.168.2.214 / rpi41	on	Ethernet	 	No
+192.168.2.224 / AX370-K3-A8-9600	on	Ethernet	 	No
+192.168.2.227 / Levoit-Humidifier	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.239 / fuchsia-dce5-5b5c-4140	on	Wi-Fi   Wi-Fi 3 bars	5 GHz, Home, Asgard	No
+192.168.2.24 / HS103	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.248 / Raspberry Pi Trading Ltd	on	Ethernet	 	No
+192.168.2.26 / HS103	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.27 / HS103	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.29 / HS103	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.3 / HS105	off	Ethernet	 	No
+192.168.2.32 / KL125	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.34 / KL125	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.36 / KL125	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.38 / KL125	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.39 / KL125	on	Wi-Fi   Wi-Fi 4 bars	2.4 GHz, Home, Asgard	No
+192.168.2.4 / VMB4000	on	Ethernet	 	No
+192.168.2.41 / KL125	on	Wi-Fi   Wi-Fi 4 bars	2.4 GHz, Home, Asgard	No
+192.168.2.44 / HS200	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.45 / HS200	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.47 / HS200	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.5 / HS103	on	Ethernet	 	No
+192.168.2.60 / HP14CB193B0F30	on	Wi-Fi   Wi-Fi 5 bars	5 GHz, Home, Asgard	No
+192.168.2.7 / Nest Cam	on	Wi-Fi   Wi-Fi 5 bars	5 GHz, Home, Asgard	No
+192.168.2.79 / HS300	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.2.8 / SPDUVFG2QA	on	Ethernet	 	No
+192.168.2.95 / ILOCN7733V5FV	on	Ethernet	 	No
+192.168.2.98 / HS103	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.3.123 / Microseven	off	Ethernet	 	No
+192.168.4.134 / aalap-tripathys-time-capsule	on	Ethernet	 	No
+192.168.4.136 / MyQ-B42	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.5.167 / iSMMXQ94502J8	on	Ethernet	 	No
+192.168.6.58 / amazon-74e29d047	on	Wi-Fi   Wi-Fi 1 bar	5 GHz, Home, Asgard	No
+192.168.7.37 / spark-819e	on	Ethernet	 	No
+192.168.8.191 / Texas Instruments	on	Wi-Fi   Wi-Fi 5 bars	2.4 GHz, Home, Asgard	No
+192.168.9.180 / Doorbell	on	Wi-Fi   Wi-Fi 5 bars	5 GHz, Home, Asgard	No
+192.168.9.193 / ubuntu	on	Wi-Fi   Wi-Fi 1 bar	2.4 GHz, Home, Asgard	No
+fd88:e93b:dd46:580d:a1d4:d0b2:768c:904d / unknowne45f01fcea26	on	Wi-Fi   Wi-Fi 5 bars	5 GHz, Home, Asgard	No
+fe80::dba8:938b:f3a4:8a61 / unknown38eaa793873d	on	Ethernet	 	No

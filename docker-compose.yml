@@ -1,0 +1,32 @@
+services:
+  db:
+    image: mariadb:10.5
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: device_tracker
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+
+  parser:
+    build: .
+    command: python parser.py
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+
+  webserver:
+    build: .
+    command: python webserver.py
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    env_file:
+      - .env

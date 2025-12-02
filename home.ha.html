@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+        <title>Status</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="type" />
+        <link rel="icon" type="image/ico" href="/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="/baseINID.css" />
+        <link rel="stylesheet" type="text/css" href="/INID.css" />
+<script type="text/css"><!--
+<style id="antiClickjack" type="text/css">body{display:none;}</style>
+//-->
+</script>
+    <script language="javascript" type="text/javascript"><!--
+  adImages=new Array('/images/Block1.gif','/images/Block3.gif','/images/Block5.gif','/images/Block7.gif','/images/Block9.gif','/images/Block11.gif','/images/Block14.gif')
+  thisAd=0
+  imgCt=adImages.length
+if (self == top) {
+    var antiClickjack = document.getElementById("antiClickjack");
+    antiClickjack.parentNode.removeChild(antiClickjack);
+} else {
+    top.location = self.location;
+}
+function rotate(){
+    if (document.images) {
+        thisAd++
+            if (thisAd==imgCt){
+                thisAd=0
+            }
+        document.adBanner.src=adImages[thisAd]
+            setTimeout('rotate()',200)
+    }
+}
+function reloadPage()
+{
+    if (document.forms[0].hidden.value == "update_refresh") {
+      rotate()
+    }
+    else if (document.forms[0].hidden.value == "freshen") {
+      setTimeout("self.location.reload(true)", 10000)
+      rotate()
+    }
+}
+
+
+//-->
+</script>
+    </head>
+           <body>
+  <div id="wrapper">
+    <div id="whole-page">
+      <div id="main-content">
+        <div id="header">
+          <div id="tab-container">
+            <div id="logo-div">
+	      <img id="main-logo" src="/images/att_logo.png" alt="" style="height:42px;" />
+            </div>
+            <div style="clear: both;"></div>
+<div id="skip"><a href="#content-sub">Skip to Main Content</a></div>
+            <div id="top-navigation">
+              <div id="top-navigation-buttons">
+<a class="topnav topnavselected" href="/cgi-bin/home.ha"><span>Device</span></a>
+<a class="topnav" href="/cgi-bin/broadbandstatistics.ha"><span>Broadband</span></a>
+<a class="topnav" href="/cgi-bin/lanstatistics.ha"><span>
+Home Network
+</span></a>
+
+<a class="topnav" href="/cgi-bin/voice.ha"><span>Voice</span></a>
+<a class="topnav" href="/cgi-bin/firewall.ha"><span>Firewall</span></a>
+<a class="topnav" href="/cgi-bin/diag.ha"><span>Diagnostics</span></a>
+              <div style="clear: both;"></div>
+            </div>
+          </div>
+          <div id="secondary-nav">
+            <div id="secondary-nav-buttons">
+<a class="secondary-link sec-selected" href="/cgi-bin/home.ha">Status</a>
+<a class="secondary-link" href="/cgi-bin/devices.ha">Device List</a>
+<a class="secondary-link" href="/cgi-bin/sysinfo.ha">System Information</a>
+<a class="secondary-link" href="/cgi-bin/routerpasswd.ha">Access Code</a>
+<a class="secondary-link" href="/cgi-bin/remoteaccess.ha">Remote Access</a>
+<a class="secondary-link" href="/cgi-bin/restart.ha">Restart Device</a>
+                  </div></div></div>
+                <div style="clear: both;"></div>
+              </div>
+        <div style="clear: both;"></div>
+      <div id="mid-section">
+          <div id="content-padding"><!-- CONTENT -->
+            <div id="content"
+ style="width:938px;"
+><div id="content-sub">
+                <div class="first-section-header">
+                            <div class="status-section">
+                                <div class="button-header-container">
+                                    <h1 class="button-header">Status</h1>
+                                    <form method="post" action="/cgi-bin/sysinfo.ha">
+<input type="hidden" name="nonce" value="807cf143f090cb74d9aa2e832d719700fda0e51d1ae2f24403ca4e4e7b03d218" />
+                                    <input type="submit" name="Sysinfo" class="cssbtn" value="More Info" />
+                                    </form>
+                                                                        <div style="clear: both;"></div>
+                                </div>
+                                                                <!-- broadband -->
+                                <div class="status-div">
+                                    <h2>Broadband</h2>
+                                    <img class="status-img" src="/images/status_broadband.png" alt="Broadband" title="Broadband" />
+                                    <form method="post" action="/cgi-bin/crestart.ha?1">
+<input type="hidden" name="nonce" value="5718a65cd27794f76fc89d14fbe58e6f227b9101148ad44137672a3ed5be9df9" />
+                                    <div class="status-line">
+                                        <div class="status-label">Broadband Connection</div>
+                                        <div class="status-value state-good">Up
+                                    </div>
+                                                                        <div class="status-button">
+                                        <input type="submit" name="Broadband" class="cssbtn" value="Restart" />
+                                    </div>
+                                                                    </div>
+                                </form>
+                                <div style="clear: both;"></div>
+                            </div><!-- status-div -->
+                                                        <!-- wi-fi -->
+                            <div class="status-div">
+                                <h2>Wi-Fi</h2>
+                                <img class="status-img" src="/images/status_wifi.png" alt="Wi-Fi" title="Wi-Fi" />
+                                <table class="status-table" summary="Wi-Fi for each configurable SSID on each Radio">
+                                    <tr>
+                                        <th valign="top" scope="row" class="head">
+                                            2.4 GHz Frequency Status</th>
+                                        <td class="value">
+                                            <span class="state-good">Enabled
+                                            </span></td>
+                                        <td class="button">
+                                            <form method="post" action="/cgi-bin/wrestart.ha?1">
+<input type="hidden" name="nonce" value="d9d9c9ea62d36027d0bacc7f6df38c8601daa88917907fec5837be7ed341740b" />
+                                            <!-- This is to avoid error : User should not request this page directly -->
+                                            <form method="post" action="/cgi-bin/wrestart.ha">
+<input type="hidden" name="nonce" value="4651ad2e9a70790c39cad3789afb87e6557d2fb1e9bfe85977328aa129c4a8f8" />
+                                            <input type="submit" name="WRestart1" class="cssbtn" value="Restart" />
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="label">Network Name (SSID)</th>
+                                        <td class="value">
+                                            <div class="wraptext">
+                                                 <pre>Asgard</pre>
+                                            </div>
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="label">Type</th>
+                                        <td class="value">Home</td>
+                                    </tr>
+                                    <tr>
+                                                                                <th scope="row" class="label">Status</th>
+                                        <td class="value">
+                                            Enabled
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                                                                <th scope="row" class="label">Password</th>
+                                        <td class="value">
+                                            <div class="wraptext">
+                                                                                                <a href="/cgi-bin/wconfig_unified.ha">Click here for details</a>
+                                            </div>
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                                                                <th scope="row" class="label">Authentication Type</th>
+                                        <td class="value">
+                                            WPA-2
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                                                        <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="label">Network Name (SSID)</th>
+                                        <td colspan="2" class="value2">
+                                            <div class="wraptext">
+                                               <pre>Midgard</pre>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="label">Type</th>
+                                        <td class="value">Guest</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="label">Status</th>
+                                        <td class="value">
+                                            Enabled
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                                                                <th scope="row" class="label">Password</th>
+                                        <td class="value">
+                                            <div class="wraptext">
+                                                                                                <a href="/cgi-bin/wconfig_unified.ha">Click here for details</a>
+                                            </div>
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                                                                <th scope="row" class="label">Authentication Type</th>
+                                        <td class="value">
+                                            WPA-2
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                                                        <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th valign="top" scope="row" class="head">
+                                            5 GHz Frequency Status</th>
+                                        <td class="value">
+                                            <span class="state-good">Enabled
+                                            </span></td>
+                                        <td class="button">
+                                            <form method="post" action="/cgi-bin/wrestart.ha?2">
+<input type="hidden" name="nonce" value="e7dc217dbf45a0bcb822b3f04e72ff3de18cb0e1c5c68d1a736d68fd07ce05c3" />
+                                            <!-- This is to avoid error : User should not request this page directly -->
+                                            <form method="post" action="/cgi-bin/wrestart.ha">
+<input type="hidden" name="nonce" value="62668e9dcb42ce641393860dfb15a2fafcf94a049949943a08e9919c6281bb4d" />
+                                            <input type="submit" name="WRestart2" class="cssbtn" value="Restart" />
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                                                                <th scope="row" class="label">Network Name (SSID)</th>
+                                        <td class="value">
+                                            <div class="wraptext">
+                                                <pre>Asgard</pre>
+                                            </div>
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="label">Type</th>
+                                        <td class="value">Home</td>
+                                    </tr>
+                                    <tr>
+                                                                                <th scope="row" class="label">Status</th>
+                                        <td class="value">
+                                            Enabled
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                                                                <th scope="row" class="label">Password</th>
+                                        <td class="value">
+                                            <div class="wraptext">
+                                                                                                <a href="/cgi-bin/wconfig_unified.ha">Click here for details</a>
+                                            </div>
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="label">Authentication Type</th>
+                                        <td class="value">
+                                            WPA-2
+                                        </td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                                                    </table>
+                                <div style="clear: both;"></div>
+                            </div><!-- status-div -->
+                                                    <!-- voice -->
+                        <div class="status-div">
+                            <h2>VoIP</h2>
+                            <!-- voice line 1 -->
+                            <img class="status-img" src="/images/status_voice.png" alt="Voice" title="Voice" />
+                            <form method="post" action="/cgi-bin/vrestart.ha?1">
+<input type="hidden" name="nonce" value="0d57e54b6c4b380c4a293170a60a320ed2c18328fcabebd70b72559d5b077aa4" />
+                            <!-- This is to avoid error : User should not request this page directly -->
+                            <form method="post" action="/cgi-bin/vrestart.ha">
+<input type="hidden" name="nonce" value="acda47284f9a60f978411898937994a7b377c6b50466794bdffec24805d51fa0" />
+                            <div class="status-line">
+                                                                <div class="status-label">Line 1 <span class="phonenumber">
+                                        Not Subscribed</span></div>
+                                                                    <div class="status-value state-bad"><img src="/images/error.png" alt="WARNING" />
+                                        Down                                        </div>
+                                        <div class="status-button">
+                                            <input type="submit" name="VRestart1" class="cssbtn" value="Restart" />
+                                        </div>
+                                    </div>
+                                    </form>
+                                    <div style="clear: both;"></div>
+                                    <!-- voice line 2 -->
+                                    <img class="status-img" src="/images/spacer.gif" height="1" alt="Voice" title="Voice" />
+                                    <form method="post" action="/cgi-bin/vrestart.ha?2">
+<input type="hidden" name="nonce" value="2ee3b56190e702c6dd04821fa096a7a7515244980c48b473148e6a7722877404" />
+                                    <!-- This is to avoid error : User should not request this page directly -->
+                                    <form method="post" action="/cgi-bin/vrestart.ha">
+<input type="hidden" name="nonce" value="4877f7b929d28fcd4a96223ff221186fce45d801b6e7de4be4900ab8430e4004" />
+                                    <div class="status-line">
+                                        <div class="status-label">Line 2 <span class="phonenumber">
+                                                Not Subscribed</span></div>
+                                                                                    <div class="status-value state-bad"><img src="/images/error.png" alt="WARNING" />
+                                                Down                                                </div>
+                                                <div class="status-button">
+                                                    <input type="submit" name="VRestart2" class="cssbtn" value="Restart" />
+                                                </div>
+                                            </div>
+                                            </form>
+                                            <div style="clear: both;"></div>
+                                        </div><!-- status-div -->
+                                                                            </div> <!-- status-section -->
+                                                                        <div class="task-section">
+                                        <h1>Common Tasks</h1>
+                                        <div class="task-list" style="min-height:256px
+;">
+                                                                                        <a href="https://myhomenetwork.att.com/#/login">Smart Home Manager - Control your home network from one easy-to-use app <span class="chevron">&#0187;</span></a><br />
+                                            <a href="http://www.att.com/esupport/">Go to AT&amp;T online support for troubleshooting and repair <span class="chevron">&#0187;</span></a><br />
+                                                                                        <a href="/cgi-bin/wconfig_unified.ha">Modify your Wi-Fi security or settings <span class="chevron">&#0187;</span></a><br />
+                                                                                        <a href="/cgi-bin/restart.ha">Restart your device <span class="chevron">&#0187;</span></a><br />
+                                                                                        <a href="devices.ha">Find a computer on your
+                                                home
+ network <span class="chevron">&#0187;</span></a><br />
+                                                                                        <a href="/cgi-bin/apphosting.ha">Adjust firewall settings
+                                                 for gaming and applications
+<span class="chevron">&#0187;</span></a><br />
+                                                                                    </div>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                    <!-- end of home -->
+                                    <div class="button-header-container">
+                                        <div class="button-header">
+                                            Home Network Devices</div>
+                                        <form method="post" action="/cgi-bin/devices.ha">
+<input type="hidden" name="nonce" value="7751b7f4159ade20243ac7a5dd559d7f1bd2fa77673e672df36e3c78ee5d98bb" />
+                                        <input type="submit" name="Devices" class="cssbtn" value="More Info" />
+                                        </form>
+                                    </div>
+
+                                    <table class="table100" summary="LAN Host Discovery Table">
+                                        <tr>
+                                            <th scope="col" width="33%">Device IP Address / Name</th>
+                                            <th scope="col" width="8%">Status</th>
+                                            <th scope="col" width="12%">Connection</th>
+                                                                                            <th scope="col" width="30%">Frequency, Type, Name</th>
+                                                                                        <th scope="col" width="17%">Mesh Client</th>
+                                        </tr>
+                                        <tr><td scope="row" class="col2">unknown00037f12a6a6</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">NVIDIA</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">jetson-xavier</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown00044bcc4c7b</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">NVIDIA</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown000a0b0c2211</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown000babccb7fb</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">gl20s</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">EL300-MXQ94502J-Ub2204</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown022542e8b0bc</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPad</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown02dd8c714f3c</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Apple, Inc.</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">ilocn66350f67</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">ILOCN66360CJS</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">ILOCN7645V1PD</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown16f3ea7144f0</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown181dea2eed0c</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown1aeefb8cfba4</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown1c1b0de22d98</td><td class="col2">off</td><td class="col2">pending</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Watch</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">udhcp 1.34.1</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown26d71449ca61</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPad</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">MrigAl</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">rpi5</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown2ccf6735b374</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Raspberry Pi (Trading) Ltd</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown2ccf67aa6727</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown32cde87950a0</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Apple iPhone</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">SPDUVFG2QA</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">ILOCN7611V0YM</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">LG Electronics</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">beast</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown38eaa78b5c7c</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown38eaa793873d</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">MrigasMcbookPro</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Linux</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">NVIDIA Corporation</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">jetson-nano-orin-sat</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">beast</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown3e242f49a580</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Mac</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">PXEClient:Arch:00007:UNDI:003016</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown464fd5d7339d</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPadM</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Tesla</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iRobot-B54C07EB29784ABF88C22A51D9B5C3A0</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">vm1</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">vm4</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">vm3</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">jetson-nano-orin-sat</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown5a3595898486</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">android-dhcp-12</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">880b8132-6e15-47d3-9a90-4e2d61ddb15a</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown70106fd0efc0</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown7085c2ac86a9</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">beast</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPad</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPhone</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192-168-2-132</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Android-2</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">rpi1-1</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown7c5cf8523307</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPad</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPhone</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Roomba-3174412401532750</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPad</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPadM</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown86433f4e8edd</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPad</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Main-Bedroom</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Main-Bedroom</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">tripataa5</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">8C86DD1EFA7E</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">8C86DD1F0EC7</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">8C86DD1F2888</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">8C86DD1F29AB</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">jetson-nano-5914</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPhone</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">PXEClient:Arch:00007:UNDI:003016</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Watch</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">RingDoorbell-b5</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Ring LLC</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPhone</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPhone</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknown92ad2a1a7c7d</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPhone</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Al</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Watch</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">DESKTOP-D0UT5BV</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Watch</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">ubuntu</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">ILO</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPhoneQ</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Espressif Inc.</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknownaa128114480b</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknownaad101641a95</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPhone</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Ring Solutions</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Android-4</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">HS105</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknownb6c8650826e1</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Apple iPhone</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">rpi3</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">ILOCN68350L6P</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Espressif Inc.</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">5c56bc40-ab38-444b-b7dd-47889c9b6395</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">PXEClient:Arch:00007:UNDI:003016</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">XBOX</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPhone</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknownc6f44eb494a4</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Watch</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPhone</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknownce56acd5b922</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">ASROCK-H170M-ITX-PG4400</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Al</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPadM</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">wlan0</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPhone</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">bubu</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">AzureWave Technology Inc.</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Intel Corporate</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknownd8f2cab5af4f</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Watch</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknownda6aec7fdd7d</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPhoneQ</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknowndca632a3497d</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">rpi44</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">beaglebone</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknowne45f01fcea25</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknowne45f01fcea26</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknowne65cf875323b</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPhone</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPhone</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">EC2BEB73B35F</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Camera1</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Fence</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Espressif Inc.</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPhone</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Guest, Midgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">PXEClient:Arch:00007:UNDI:003016</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Apple, Inc.</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2">&nbsp;</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknownf2aaf61819a4</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknownf2f9534bb00c</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">unknownf83dc61f8d67</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-4-bar.png" alt="Wi-Fi 4 bars" /></td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">iPad</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">5 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">Watch</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2">2.4 GHz, Home, Asgard</td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.1.124 / SWNHD-825CAM20150906CCWR537455557</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.1.126 / SWNHD-825CAM20141008CCWR481721538</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.1.152 / Android-2</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.10.252 / Samsung-Refrigerator</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.11.39 / wlan0</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.12.197 / iRobot-778A8B4622E54EFB88A8EA5D5C6A9040</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.12.207 / Al</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.13.197 / Texas Instruments</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-4-bar.png" alt="Wi-Fi 4 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.13.56 / artik</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.13.59 / Ring Solutions</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-4-bar.png" alt="Wi-Fi 4 bars" /></td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.13.75 / rpi5</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-3-bar.png" alt="Wi-Fi 3 bars" /></td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.13.78 / HS200</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.13.79 / iPhone</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-3-bar.png" alt="Wi-Fi 3 bars" /></td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.14.108 / sfce-snpdrgn-at</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-4-bar.png" alt="Wi-Fi 4 bars" /></td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.14.109 / NVIDIA Corporation</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.14.114 / ubuntu</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-4-bar.png" alt="Wi-Fi 4 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.14.116 / NucBox_EVO-X2</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.14.118 / jetson-nano-5910</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-2-bar.png" alt="Wi-Fi 2 bars" /></td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.14.132 / EL300-MXQ94502J-Ub2204</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.14.97 / EL300-MXQ94502J</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.102 / EL300-Living-Left</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.109 / HS103</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.111 / artik</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.116 / gl20-centos75</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.119 / raspberrypi</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.123 / HS300</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.124 / EP40</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.132 / Android</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.139 / NucBox_EVO-X2</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.140 / rpi43</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-3-bar.png" alt="Wi-Fi 3 bars" /></td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.153 / EL300-MXQ94502J</td><td class="col2">off</td><td class="col2">Wi-Fi</td><td class="col2"><pre class="column">2.4 GHz, Guest, Midgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.157 / eth0</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.16 / HS103</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.162 / Left</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.164 / HS300</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.166 / Backyard</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.167 / Back</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.168 / Front</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.169 / Right</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.17 / Hewlett Packard Enterprise </td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.170 / Front</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.171 / Front</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.172 / Front</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.177 / none-7</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-4-bar.png" alt="Wi-Fi 4 bars" /></td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.178 / none</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-3-bar.png" alt="Wi-Fi 3 bars" /></td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.192 / eth0</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.197 / TL-SG108E</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.199 / rpi-zerow</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-3-bar.png" alt="Wi-Fi 3 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.2 / HS103</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.203 / MikroTik_CRS305</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.204 / MikroTik_CRS309</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.206 / iRobot-DC92E17E17A14A39A268B03A0FDC2BF3</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-3-bar.png" alt="Wi-Fi 3 bars" /></td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.208 / KL420</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.21 / AX370-K3-A8-9600</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.210 / espressif</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-4-bar.png" alt="Wi-Fi 4 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.212 / Ring-a3cff0</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.213 / NVR-RLN16-410</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.214 / rpi41</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.224 / GIGA-BYTE TECHNOLOGY CO.,LTD.</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.227 / Levoit-Humidifier</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.239 / fuchsia-dce5-5b5c-4140</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-3-bar.png" alt="Wi-Fi 3 bars" /></td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.24 / HS103</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.248 / rpi41</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.26 / HS103</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.27 / HS103</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.29 / HS103</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.3 / HS105</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.32 / KL125</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.34 / KL125</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.36 / KL125</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.38 / KL125</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.39 / KL125</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-4-bar.png" alt="Wi-Fi 4 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.4 / VMB4000</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.41 / KL125</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-4-bar.png" alt="Wi-Fi 4 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.44 / HS200</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.45 / HS200</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.47 / HS200</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.5 / HS103</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.60 / HP14CB193B0F30</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.7 / Nest Labs Inc.</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.79 / HS300</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.8 / SPDUVFG2QA</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.95 / ILOCN7733V5FV</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.2.98 / HS103</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.3.123 / Microseven</td><td class="col2">off</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.4.134 / aalap-tripathys-time-capsule</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.4.136 / MyQ-B42</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.5.167 / iSMMXQ94502J8</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.6.58 / amazon-74e29d047</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-1-bar.png" alt="Wi-Fi 1 bar" /></td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.7.37 / spark-819e</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.8.191 / Texas Instruments</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">2.4 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.9.180 / Doorbell</td><td class="col2">on</td><td class="col2">Wi-Fi&nbsp;&nbsp;&nbsp;<img src="/images/signal-strength-5-bar.png" alt="Wi-Fi 5 bars" /></td><td class="col2"><pre class="column">5 GHz, Home, Asgard</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">192.168.9.193 / ubuntu</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+<tr><td scope="row" class="col2">fe80::1e1b:dff:fee2:2d98 / AX370-K3-A8-9600</td><td class="col2">on</td><td class="col2">Ethernet</td><td class="col2"><pre class="column">&nbsp;</pre></td><td class="col2">No</td></tr>
+                                    </table>
+                                                                    </div>
+                                                </div>
+              </div>
+            </div>
+ <!-- isWANUP -->
+            <div style="clear: both;"></div>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+      </div>
+      <div id="footer">
+      <div><br>
+   <span class="inner">&copy; 2016-2025 AT&T Intellectual Property. All rights reserved. AT&T and Globe logo are registered trademarks of AT&T Intellectual Property.</span>
+   <span class="sitemap"><a href="/cgi-bin/sitemap.ha">Site Map</a></span></br></div>
+   <div><span class="inner">&copy; 2016 ARRIS Enterprises LLC. All rights reserved. ARRIS is a registered trademark of ARRIS Enterprises LLC.</span></div>
+   </div>
+      </div>
+</body>
+</html>
