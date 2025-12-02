@@ -21,17 +21,18 @@ This project parses the AT&T BGW320 router status page, extracts the "LAN Host D
 - `requirements.txt` — Python dependencies: `requests`, `beautifulsoup4`, `mysql-connector-python`, `flask`.
 
 **Quick start (Docker Compose)**
-
-1. Build and start the stack (from project root):
+1. Copy .env-example to .env and update values as needed.
+2. Build and start the stack (from project root):
 
 ```bash
 docker-compose up --build
 ```
 
-2. Services started by `docker-compose.yml`:
+3. Services started by `docker-compose.yml`:
 - `db` (MariaDB) on port `3306` with `MYSQL_ROOT_PASSWORD=password` (see `docker-compose.yml`).
 - `parser` runs `parser.py` and depends on `db`.
 - `webserver` runs `webserver.py` and exposes port `5000`.
+- API will be available at http://localhost:5000/devices
 
 3. Query devices via HTTP:
 
